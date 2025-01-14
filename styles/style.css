@@ -124,6 +124,32 @@ body {
 }
 
 /* Media Query para telas pequenas (celulares) */
+/* Estilos gerais */
+body {
+    background-color: var(--cor-de-fundo);
+    color: var(--branco-principal);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.apresentacao {
+    padding: 100px;
+    background-color: var(--cor-fundo-apresentacao);
+    border: 2px solid var(--borda);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 80%; /* Tamanho reduzido para telas grandes */
+    max-width: 500px; /* Tamanho máximo maior para telas maiores */
+}
+
+/* Media Query para telas pequenas (celulares) */
 @media (max-width: 600px) {
     body {
         flex-direction: column;
@@ -131,17 +157,19 @@ body {
     }
 
     .apresentacao {
-        padding: 20px; /* Menos espaçamento em telas pequenas */
+        padding: 15px; /* Menos espaçamento em telas pequenas */
         width: 90%;
+        max-width: 350px; /* Reduz ainda mais o tamanho máximo da apresentação */
     }
 
     .conteudo {
         align-items: center; /* Centraliza os itens no celular */
+        gap: 8px;
     }
 
     .botao {
         width: 100%; /* O botão ocupa toda a largura da tela */
-        padding: 12px;
+        padding: 10px 0; /* Ajusta o padding do botão */
     }
 
     .conteudo_texto {
@@ -154,6 +182,7 @@ body {
     .apresentacao {
         width: 80%;
         padding: 50px;
+        max-width: 400px; /* Tamanho máximo menor para tablets */
     }
 
     .botao {
