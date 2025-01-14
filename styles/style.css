@@ -1,0 +1,170 @@
+:root {
+    --fundo-principal: #0D1117; /* Azul escuro quase preto */
+    --fundo-secundario: #161B22; /* Azul mais claro */
+    --texto-principal: #C9D1D9; /* Cinza claro para texto */
+    --texto-secundario: #8B949E; /* Cinza médio */
+    --botao-primario: #4C6A92; /* Verde brilhante para botões */
+    --botao-primario-hover: #7a7a7a; /* Verde mais claro para hover */
+    --borda: #30363D; /* Cinza escuro para bordas */
+    --fonte-principal: 'Inter', sans-serif; /* Fonte principal */
+
+    --cor-de-fundo: var(--fundo-principal); /* Fundo principal da página */
+    --branco-principal: var(--texto-principal); /* Texto principal */
+    --cor-fundo-apresentacao: var(--fundo-secundario); /* Fundo do bloco de apresentação */
+    --botao-azul: var(--botao-primario); /* Botão primário */
+    --botao-azul-efeito: var(--botao-primario-hover); /* Efeito de hover no botão */
+}
+
+body {
+    background-color: var(--cor-de-fundo);
+    color: var(--branco-principal);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.apresentacao {
+    padding: 100px;
+    background-color: var(--cor-fundo-apresentacao);
+    border: 2px solid var(--borda);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+.apresentacao__titulo {
+    text-align: center;
+    font-family: var(--fonte-principal);
+    font-size: 24px;
+    color: var(--texto-principal);
+    margin-bottom: 16px;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column; /* Coloca os elementos verticalmente */
+    align-items: flex-start; /* Alinha os elementos à esquerda */
+    gap: 10px; /* Espaçamento entre os elementos */
+    width: 100%; /* Faz o conteúdo ocupar toda a largura do bloco */
+}
+
+.conteudo_texto {
+    margin: 0; /* Remove margens extras */
+    font-size: 14px; /* Define um tamanho de fonte apropriado */
+    color: var(--texto-principal); /* Aplica a cor do texto principal */
+    font-weight: 500; /* Dá ênfase moderada ao texto */
+    text-align: left; /* Garante alinhamento à esquerda */
+    display: block; /* Garante que o texto fique acima do campo */
+}
+
+.conteudo input[type="email"],
+.conteudo input[type="password"] {
+    width: 100%; /* Faz os campos ocuparem toda a largura disponível */
+    padding: 10px;
+    background-color: var(--fundo-principal);
+    color: var(--texto-principal);
+    border: 1px solid var(--borda);
+    border-radius: 4px;
+    font-family: var(--fonte-principal);
+    font-size: 14px;
+    margin-top: 5px; /* Espaço entre o rótulo e o campo */
+}
+
+.conteudo input[type="email"]::placeholder,
+.conteudo input[type="password"]::placeholder {
+    color: var(--texto-secundario);
+}
+
+.lembra_senha {
+    margin-bottom: 30px;
+    font-family: var(--fonte-principal);
+    font-size: 12px;
+    display: flex;
+    justify-content: right;
+    color: var(--texto-secundario);
+}
+
+.botao {
+    border: 2px solid var(--borda);
+    text-align: center;
+    background-color: var(--botao-azul);
+    color: var(--texto-principal);
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-decoration: none; /* Garante que o botão em si não tenha sublinha */
+    font-size: 16px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.botao a {
+    text-decoration: none; /* Remove a sublinha do link */
+    color: var(--texto-principal); /* Define a cor do texto dentro do link */
+}
+
+.botao:hover {
+    background-color: var(--botao-azul-efeito);
+}
+
+.esqueceu_senha {
+    font-family: var(--fonte-principal);
+    font-size: 12px;
+    color: var(--texto-secundario);
+    margin-top: 15px;
+}
+
+/* Media Query para telas pequenas (celulares) */
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .apresentacao {
+        padding: 20px; /* Menos espaçamento em telas pequenas */
+        width: 90%;
+    }
+
+    .conteudo {
+        align-items: center; /* Centraliza os itens no celular */
+    }
+
+    .botao {
+        width: 100%; /* O botão ocupa toda a largura da tela */
+        padding: 12px;
+    }
+
+    .conteudo_texto {
+        font-size: 14px; /* Ajusta o tamanho da fonte */
+    }
+}
+
+/* Media Query para tablets */
+@media (max-width: 1024px) {
+    .apresentacao {
+        width: 80%;
+        padding: 50px;
+    }
+
+    .botao {
+        width: 100%; /* O botão ocupa toda a largura da tela */
+    }
+}
+
+/* Media Query para telas maiores (desktop) */
+@media (min-width: 1025px) {
+    .apresentacao {
+        width: 40%; /* Reduz o tamanho da apresentação em telas grandes */
+        padding: 80px;
+    }
+}
