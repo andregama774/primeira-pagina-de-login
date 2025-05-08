@@ -1,0 +1,140 @@
+/* Resetando margens e padding para garantir consistência */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fundo-principal: #1C2A35; /* Azul escuro */
+    --fundo-secundario: #273F4F; /* Azul mais claro, mas ainda escuro */
+    --texto-principal: #E1E8ED; /* Azul bem claro, quase branco */
+    --texto-secundario: #A1B2C3; /* Azul médio para textos secundários */
+    --botao-primario: #4A6A80; /* Azul suave para o botão */
+    --botao-primario-hover: #6A8CA1; /* Azul com efeito de hover mais claro */
+    --borda: #3A4B62; /* Azul mais intenso para bordas */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--fundo-principal);
+    color: var(--texto-principal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: var(--fundo-secundario);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--texto-principal);
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid var(--borda);
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: var(--fundo-principal);
+    color: var(--texto-principal);
+}
+
+input:focus {
+    border-color: var(--botao-primario);
+    outline: none;
+}
+
+button {
+    padding: 12px;
+    width: 100%;
+    background-color: var(--botao-primario);
+    color: var(--texto-principal);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--botao-primario-hover);
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.hidden {
+    display: none;
+}
+
+p {
+    text-align: center;
+    font-size: 14px;
+    color: var(--texto-secundario);
+}
+
+/* Media Queries para telas menores */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+}
+
+/* Media Queries para telas pequenas (ex: smartphones) */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    input {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 11px;
+    }
+}
