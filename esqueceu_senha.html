@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esqueceu a Senha</title>
+    <link rel="stylesheet" href="styles/style_esqueceu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    
+</head>
+<body>
+
+    <div class="container">
+        <!-- Etapa 1: Solicitação de e-mail -->
+        <div id="step1">
+            <h2>Esqueceu a Senha?</h2>
+            <p>Digite seu e-mail para receber um código de verificação.</p>
+            <input type="email" id="email" placeholder="Seu e-mail" required>
+            <button onclick="sendEmail()">Enviar código</button>
+        </div>
+
+        <!-- Etapa 2: Verificação do código -->
+        <div id="step2" class="hidden">
+            <h2>Verifique seu e-mail</h2>
+            <p>Insira o código de verificação que você recebeu:</p>
+            <input type="text" id="verificationCode" placeholder="Código de verificação" required>
+            <button onclick="verifyCode()">Verificar Código</button>
+        </div>
+
+        <!-- Etapa 3: Redefinir a senha -->
+        <div id="step3" class="hidden">
+            <h2>Redefina sua Senha</h2>
+            <input type="password" id="newPassword" placeholder="Nova senha" required>
+            <input type="password" id="confirmPassword" placeholder="Confirmar senha" required>
+            <button onclick="resetPassword()">Redefinir Senha</button>
+        </div>
+    </div>
+
+    <script>
+        let correctCode = "123456";  // Exemplo de código de verificação (geralmente gerado aleatoriamente)
+
+        function sendEmail() {
+            let email = document.getElementById("email").value;
+            if (email) {
+                alert("Código de verificação enviado para " + email);
+                // Mostrar Etapa 2
+                document.getElementById("step1").classList.add("hidden");
+                document.getElementById("step2").classList.remove("hidden");
+            } else {
+                alert("Por favor, insira um e-mail válido.");
+            }
+        }
+
+        function verifyCode() {
+            let code = document.getElementById("verificationCode").value;
+            if (code === correctCode) {
+                // Mostrar Etapa 3
+                document.getElementById("step2").classList.add("hidden");
+                document.getElementById("step3").classList.remove("hidden");
+            } else {
+                alert("Código incorreto. Tente novamente.");
+            }
+        }
+
+        function resetPassword() {
+            let newPassword = document.getElementById("newPassword").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+            if (newPassword === confirmPassword && newPassword.length >= 6) {
+                alert("Senha redefinida com sucesso!");
+                // Redirecionar para página de login (por exemplo)
+                window.location.href = "index.html";
+            } else {
+                alert("As senhas não coincidem ou são muito curtas. Tente novamente.");
+            }
+        }
+    </script>
+
+</body>
+</html>
