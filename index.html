@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de login</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Página de login</title>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <section class="apresentacao">
-            <h1 class="apresentacao__titulo">Login</h1>
-        <div class="conteudo">
-            <p class="conteudo_texto">E-mail</p>
-            <input type="email" placeholder="Coloque seu e-mail">
-            <p>Senha</p>
-            <input type="password" class="senha" placeholder="Coloque sua senha">
-        </div>
-        <div class="lembra_senha">
-            <p class="conteudo_texto">Lembrar senha? <input type="checkbox"></p>   
-        </div>
-        <div class="botao">
-                <a href="*">
-                    Entrar
-                </a>
-        </div>
-        <div class="esqueceu_senha">
-                <p>Esqueceu a senha? <a href="esqueceu_senha.html">Clique aqui</a></p>
-        </div>
-    </section>
+  <section class="apresentacao">
+    <h1 class="apresentacao__titulo">Login</h1>
 
+    <div class="conteudo">
+      <p class="conteudo_texto">E-mail</p>
+      <input type="email" class="input-campo" id="email" placeholder="Coloque seu e-mail" />
+    </div>
 
+    <div class="conteudo">
+      <p class="conteudo_texto">Senha</p>
+      <div class="senha-container">
+        <input type="password" id="senha" class="input-campo senha" placeholder="Coloque sua senha" />
+        <span class="olho" onclick="toggleSenha('senha')">👁️</span>
+      </div>
+    </div>
+
+    <div class="lembra_senha">
+      <label class="conteudo_texto">
+        <input type="checkbox" id="lembrar" /> Lembrar senha?
+      </label>
+      <a href="esqueceu_senha.html" class="link_senha">Esqueceu a senha?</a>
+    </div>
+
+    <div class="botoes-container">
+      <div class="botao"><a href="*">Entrar</a></div>
+    </div>
+
+    <div >
+        <p> Ainda não é cadastrado(a) ? <a href="cadastro.html" class="link_senha">  Cadastre-se agora</a></p>
+    </div>
+  </section>
+
+  <script>
+    function toggleSenha(id) {
+      const input = document.getElementById(id);
+      input.type = input.type === "password" ? "text" : "password";
+    }
+
+  </script>
 </body>
 </html>
