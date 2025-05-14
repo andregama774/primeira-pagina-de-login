@@ -1,11 +1,11 @@
 :root {
-    --fundo-principal: #1C2A35; /* Azul escuro */
-    --fundo-secundario: #273F4F; /* Azul mais claro, mas ainda escuro */
-    --texto-principal: #E1E8ED; /* Azul bem claro, quase branco */
-    --texto-secundario: #A1B2C3; /* Azul médio para textos secundários */
-    --botao-primario: #4A6A80; /* Azul suave para o botão */
-    --botao-primario-hover: #6A8CA1; /* Azul com efeito de hover mais claro */
-    --borda: #3A4B62; /* Azul mais intenso para bordas */
+    --fundo-principal: #1C2A35;
+    --fundo-secundario: #273F4F;
+    --texto-principal: #E1E8ED;
+    --texto-secundario: #A1B2C3;
+    --botao-primario: #4A6A80;
+    --botao-primario-hover: #6A8CA1;
+    --borda: #3A4B62;
     --fonte-principal: 'Inter', sans-serif;
     --cor-de-fundo: var(--fundo-principal);
     --branco-principal: var(--texto-principal);
@@ -60,7 +60,7 @@ body {
     text-align: left;
 }
 
-.conteudo input[type="email"] {
+.input-campo {
     width: 100%;
     padding: 12px;
     background-color: var(--fundo-principal);
@@ -69,12 +69,19 @@ body {
     border-radius: 4px;
     font-family: var(--fonte-principal);
     font-size: 14px;
-    margin-top: 5px;
     box-sizing: border-box;
+    margin-bottom: 10px;
+    transition: all 0.2s ease-in-out;
 }
 
-.conteudo input[type="email"]::placeholder {
+.input-campo::placeholder {
     color: var(--texto-secundario);
+}
+
+.input-campo:focus {
+    outline: none;
+    border-color: var(--botao-primario-hover);
+    box-shadow: 0 0 0 2px rgba(106, 140, 161, 0.3);
 }
 
 .botao {
@@ -89,7 +96,6 @@ body {
     display: inline-block;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 20px;
 }
 
 .botao a {
@@ -107,12 +113,58 @@ body {
     margin-top: 15px;
 }
 
-.senha{
-    width: 90%;
-    padding: 12px;
-    background-color:var(--fundo-principal) ;
-    color: var(--branco-principal);
+.senha-container {
+    position: relative;
+    width: 100%;
 }
+
+.senha-container .input-campo {
+    padding-right: 40px;
+}
+
+.olho {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--texto-secundario);
+    user-select: none;
+}
+
+/* NOVOS ESTILOS ADICIONADOS */
+
+.lembra_senha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--texto-secundario);
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.link_senha {
+    color: var(--texto-secundario);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.link_senha:hover {
+    color: var(--texto-principal);
+}
+
+.botoes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* RESPONSIVO */
 
 @media (max-width: 768px) {
     .apresentacao {
@@ -128,7 +180,7 @@ body {
         font-size: 13px;
     }
 
-    .conteudo input[type="email"] {
+    .input-campo {
         font-size: 12px;
         padding: 10px;
     }
@@ -140,10 +192,6 @@ body {
 
     .voltar_login {
         font-size: 11px;
-    }
-
-    .senha{
-        width: 80%;
     }
 }
 
@@ -161,7 +209,7 @@ body {
         font-size: 12px;
     }
 
-    .conteudo input[type="email"] {
+    .input-campo {
         font-size: 11px;
         padding: 8px;
     }
@@ -173,8 +221,5 @@ body {
 
     .voltar_login {
         font-size: 10px;
-    }
-    .senha{
-        width: 70%;
     }
 }
